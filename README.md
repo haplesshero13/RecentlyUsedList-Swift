@@ -7,6 +7,8 @@ Develop a recently-used-list class to hold strings uniquely in Last-In-First-Out
 * Items in the list are unique, so duplicate insertions are moved rather than added.
 * A recently-used-list is initially empty.
 
+*(Source: https://github.com/garora/TDD-Katas)*
+
 ## Interface
 
 ```swift
