@@ -8,9 +8,10 @@ public class PlaygroundTestObserver : NSObject, XCTestObservation {
 }
 
 public struct TestRunner {
+    let observer = PlaygroundTestObserver()
+    let center = XCTestObservationCenter.shared()
+
     public init() {
-        let observer = PlaygroundTestObserver()
-        let center = XCTestObservationCenter.shared()
         center.addTestObserver(observer)
     }
 
