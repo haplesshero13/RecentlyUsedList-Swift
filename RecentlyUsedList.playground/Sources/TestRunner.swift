@@ -3,12 +3,17 @@ import XCTest
 
 public class PlaygroundTestObserver : NSObject, XCTestObservation {
     @objc public func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: UInt) {
-        print("Test failed on line \(lineNumber): \(testCase.name), \(description)")
+        print("Test failed on line \(lineNumber): \(String(describing: testCase.name)), \(description)")
     }
 }
 
 public struct TestRunner {
-    public init() {}
+    public init() {
+        let observer = PlaygroundTestObserver()
+        let center = XCTestObservationCenter.shared()
+        center.addTestObserver(observer)
+    }
+
     public func runTests(testClass:AnyClass) {
         print("Running test suite \(testClass)")
         
