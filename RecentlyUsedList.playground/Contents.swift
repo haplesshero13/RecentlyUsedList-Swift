@@ -6,7 +6,11 @@ class RecentlyUsedListTests: XCTestCase {
     }
     
     func testList() {
+        XCTAssertTrue(false, "You should change this test!")
     }
 }
 
-TestRunner().runTests(testClass: RecentlyUsedListTests.self)
+
+let testObserver = TestObserver()
+XCTestObservationCenter.shared.addTestObserver(testObserver)
+RecentlyUsedListTests.defaultTestSuite.run()
